@@ -35,6 +35,8 @@ df.depenses=centrer_reduire(df.depenses)
 df.salaire = centrer_reduire(df.salaire)
 df.age = centrer_reduire(df.age)
 
+# Ecriture dans depensesNormalized.csv
+df.to_csv("data/depensesNormalized.csv",index=False)
 
 if __name__ == "__main__":
     print("Hello")
