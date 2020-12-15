@@ -17,8 +17,8 @@ dfSaveNom = pd.DataFrame({"nom" : saveNom})
 dfSaveVille = pd.DataFrame({"ville" : saveVille})
 
 # Hashage
-df["nom"] = df[["nom"]].sum(axis=1).map(hash)
-df["ville"] = df[["ville"]].sum(axis=1).map(hash)
+df["nom"] = df["nom"].map(hash)
+df["ville"] = df["ville"].map(hash)
 
 
 
