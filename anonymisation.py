@@ -22,8 +22,8 @@ df["ville"] = df["ville"].map(hash)
 
 
 
-dfSaveNom['idName'] = dfSaveNom[['nom']].sum(axis=1).map(hash)
-dfSaveVille["idVille"] = dfSaveVille[["ville"]].sum(axis=1).map(hash)
+dfSaveNom['idName'] = dfSaveNom['nom'].map(hash)
+dfSaveVille["idVille"] = dfSaveVille["ville"].map(hash)
 
 def centrer_reduire(col):
     col = (col - col.mean())/col.std()
