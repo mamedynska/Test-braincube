@@ -1,7 +1,5 @@
 import numpy as np
 import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
 
 print("Setup Complete")
 
@@ -9,6 +7,10 @@ print("Setup Complete")
 filepath = "data/depenses.csv"
 df = pd.read_csv(filepath)
 
+
+# On sauvegarde le nom non-hashé de la ville et du client.
+saveNom = df.nom.unique()
+saveVille = df.ville.unique()
 
 # Sauvegarde
 dfSaveNom = pd.DataFrame({"nom" : saveNom})
@@ -18,9 +20,6 @@ dfSaveVille = pd.DataFrame({"ville" : saveVille})
 df["nom"] = df[["nom"]].sum(axis=1).map(hash)
 df["ville"] = df[["ville"]].sum(axis=1).map(hash)
 
-# On sauvegarde le nom non-hashé de la ville et du client.
-saveNom = df.nom.unique()
-saveVille = df.ville.unique()
 
 
 dfSaveNom['idName'] = dfSaveNom[['nom']].sum(axis=1).map(hash)
@@ -37,6 +36,3 @@ df.age = centrer_reduire(df.age)
 
 # Ecriture dans depensesNormalized.csv
 df.to_csv("data/depensesNormalized.csv",index=False)
-
-if __name__ == "__main__":
-    print("Hello")
